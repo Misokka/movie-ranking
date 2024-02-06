@@ -29,14 +29,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const ratingDiv = document.createElement("div");
         ratingDiv.classList.add("rating");
-        ratingDiv.dataset.ratingValue = 0; 
+
+        const savedRating = localStorage.getItem(titre) || 0;
+        ratingDiv.dataset.ratingValue = savedRating; 
         ratingDiv.dataset.filmTitle = titre;
 
         for (let i = 1; i <= 5; i++) {
             const star = document.createElement("span");
-            star.innerHTML = "&#9734;"; 
+            star.innerHTML = i <= savedRating ? "&#9733;" : "&#9734;"; 
             star.dataset.rating = i;
-            star.addEventListener("click", function() { setRating(filmDiv, i); });
+            star.addEventListener("click", function() { setRating(filmDiv, i, titre); });
             ratingDiv.appendChild(star);
         }
 
@@ -46,14 +48,15 @@ document.addEventListener("DOMContentLoaded", function() {
         filmsListDiv.appendChild(filmDiv);
     });
 
-    function setRating(filmDiv, rating) {
+    function setRating(filmDiv, rating, filmTitle) {
         const ratingDiv = filmDiv.querySelector(".rating");
         const stars = ratingDiv.querySelectorAll("span");
 
         stars.forEach((star, index) => {
-            star.innerHTML = index < rating ? "&#9733;" : "&#9734;"; 
+            star.innerHTML = index < rating ? "&#9733;" : "&#9734;";
         });
 
         ratingDiv.dataset.ratingValue = rating;
+        localStorage.setItem(filmTitle, rating);
     }
 });
