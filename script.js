@@ -24,24 +24,31 @@ document.addEventListener("DOMContentLoaded", function() {
         const filmDiv = document.createElement("div");
         filmDiv.classList.add("film");
 
+        const filmImage = document.createElement("img");
+
+        const imageName = titre.toLowerCase().replace(/ /g, "") + ".jpg"; 
+        filmImage.src = `img/${imageName}`;
+        filmImage.alt = `Affiche de ${titre}`;
+        filmImage.classList.add("film-img"); 
+
         const filmTitre = document.createElement("h2");
         filmTitre.textContent = titre;
 
         const ratingDiv = document.createElement("div");
         ratingDiv.classList.add("rating");
-
         const savedRating = localStorage.getItem(titre) || 0;
-        ratingDiv.dataset.ratingValue = savedRating; 
+        ratingDiv.dataset.ratingValue = savedRating;
         ratingDiv.dataset.filmTitle = titre;
 
         for (let i = 1; i <= 5; i++) {
             const star = document.createElement("span");
-            star.innerHTML = i <= savedRating ? "&#9733;" : "&#9734;"; 
+            star.innerHTML = i <= savedRating ? "&#9733;" : "&#9734;";
             star.dataset.rating = i;
             star.addEventListener("click", function() { setRating(filmDiv, i, titre); });
             ratingDiv.appendChild(star);
         }
 
+        filmDiv.appendChild(filmImage); 
         filmDiv.appendChild(filmTitre);
         filmDiv.appendChild(ratingDiv);
 
