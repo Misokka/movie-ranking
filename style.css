@@ -25,6 +25,9 @@ body {
     cursor: pointer;
 }
 
+.film-img {
+    width: 200px; /* Set your desired width */
+    height: auto; /* Maintain aspect ratio */
 
 .navbar {
     overflow: hidden;
