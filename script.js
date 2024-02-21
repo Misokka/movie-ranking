@@ -15,7 +15,8 @@ document.addEventListener("DOMContentLoaded", function() {
         "Matrix",
         "Seven",
         "Le voyage de Chihiro",
-        "La ligne verte"
+        "La ligne verte",
+        "Raiponce"
     ];
 
     const filmsListDiv = document.getElementById("filmsList");
@@ -67,3 +68,4 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem(filmTitle, rating);
     }
 });
+
