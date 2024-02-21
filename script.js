@@ -20,7 +20,8 @@ document.addEventListener("DOMContentLoaded", function() {
     ];
 
     const filmsDescriptions = {
-        "Raiponce": "Raiponce grandit et devient une fille d'une très grande beauté, dont les longs cheveux dorés et blonds sont réunis en deux tresses longues et soyeuses."
+        "Raiponce": "Raiponce grandit et devient une fille d'une très grande beauté, dont les longs cheveux dorés et blonds sont réunis en deux tresses longues et soyeuses.",
+        "La ligne verte": "Synopsis. Paul Edgecomb, pensionnaire centenaire d'une maison de retraite, est hanté par ses souvenirs. Gardien-chef du pénitencier de Cold Mountain en 1935, il était chargé de veiller au bon déroulement des exécutions capitales en s'efforçant d'adoucir les derniers moments des condamnés."
     };
 
     const filmsListDiv = document.getElementById("filmsList");
@@ -39,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const filmTitre = document.createElement("h2");
         filmTitre.textContent = titre;
 
-        
         const filmDescription = document.createElement("p");
         filmDescription.textContent = filmsDescriptions[titre] || "";
 
@@ -77,5 +77,6 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem(filmTitle, rating);
     }
 });
+
 
 
