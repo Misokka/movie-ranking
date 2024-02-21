@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Run ESLint on staged JavaScript files
+git diff --cached --name-only --diff-filter=ACMRTUXB | grep '\.js$' | xargs eslint
+
+# If ESLint finds errors, exit with a non-zero status
+if [ $? -ne 0 ]; then
+    echo "ESLint failed, commit aborted"
+    exit 1
+fi
