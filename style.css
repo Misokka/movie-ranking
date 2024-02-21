@@ -24,3 +24,9 @@ body {
     color: #ffdd00;
     cursor: pointer;
 }
+
+
+.film-img {
+    width: 200px; /* Set your desired width */
+    height: auto; /* Maintain aspect ratio */
+}
