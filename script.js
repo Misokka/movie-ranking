@@ -19,6 +19,10 @@ document.addEventListener("DOMContentLoaded", function() {
         "Raiponce"
     ];
 
+    const filmsDescriptions = {
+        "Raiponce": "Raiponce grandit et devient une fille d'une très grande beauté, dont les longs cheveux dorés et blonds sont réunis en deux tresses longues et soyeuses."
+    };
+
     const filmsListDiv = document.getElementById("filmsList");
 
     films.forEach(titre => {
@@ -34,6 +38,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const filmTitre = document.createElement("h2");
         filmTitre.textContent = titre;
+
+        
+        const filmDescription = document.createElement("p");
+        filmDescription.textContent = filmsDescriptions[titre] || "";
 
         const ratingDiv = document.createElement("div");
         ratingDiv.classList.add("rating");
@@ -51,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         filmDiv.appendChild(filmImage); 
         filmDiv.appendChild(filmTitre);
+        filmDiv.appendChild(filmDescription); 
         filmDiv.appendChild(ratingDiv);
 
         filmsListDiv.appendChild(filmDiv);
@@ -68,4 +77,5 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem(filmTitle, rating);
     }
 });
+
 
